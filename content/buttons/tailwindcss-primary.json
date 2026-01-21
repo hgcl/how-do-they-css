@@ -1,0 +1,18 @@
+{
+  "source": "Tailwind CSS",
+  "comment": "Primary",
+  "css": [
+    "cursor: pointer",
+    "border: none",
+    "color: #fff",
+    "font-weight: 600",
+    "border-radius: .375rem",
+    "padding-block: .375rem",
+    "padding-inline: .625rem"
+  ],
+  "cssHover": {
+    "defaultBackgroundColor": "oklch(51.1% .262 276.966)",
+    "hoverBackgroundColor": "oklch(58.5% .233 277.117)"
+  },
+  "dateModified": "2026-01-20"
+}
