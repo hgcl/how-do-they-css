@@ -1,13 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2025-07-15",
+  compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxt/a11y"],
+  modules: ['@nuxt/eslint', '@nuxt/a11y', '@nuxt/content', '@nuxt/fonts'],
+  css: ['~/assets/globals.css'],
   eslint: {
     config: {
       // Format with ESLint
-      stylistic: true,
-    },
+      stylistic: true
+    }
   },
   a11y: {
     // Enable/disable the module (default: true in dev mode)
@@ -15,6 +16,6 @@ export default defineNuxtConfig({
     // Auto-highlight all violations when detected
     defaultHighlight: true,
     // Log violations to browser console
-    logIssues: true,
-  },
-});
+    logIssues: true
+  }
+})
