@@ -18,7 +18,7 @@
       <component
         :is="htmlEl ? htmlEl : 'div'"
         :class="`card__example ${itemStyle}`"
-        :style="entry.css"
+        :style="[...entry.css]"
         tabindex="-1"
       >
         {{ entry.comment }}

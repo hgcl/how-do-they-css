@@ -4,7 +4,7 @@ import { z } from 'zod'
 const baseSchema = (config = {}) =>
   z.object({
     ...config,
-    css: z.string(),
+    css: z.array(z.string()),
     cssHover: z
       .object({
         defaultBackgroundColor: z.string(),
