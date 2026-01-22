@@ -2,9 +2,9 @@
   <ul v-if="shadows">
     <GridItem :list="shadows" :item-style="'square'" />
   </ul>
-  <ul v-if="buttons">
+  <!-- <ul v-if="buttons">
     <GridItem :list="buttons" html-el="button" />
-  </ul>
+  </ul> -->
 </template>
 
 <script lang="ts" setup>
@@ -25,19 +25,9 @@ ul {
   padding: 0;
   margin: 0;
   /* Custom styles */
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(100%/3, max(144px, 100%/6)), 1fr)
-  ); /* 2-5 cols, with min-width of 112px per column */
-  grid-gap: var(--spacing-m);
-}
-
-/* MEDIA QUERIES */
-
-@media (width > 480px) {
-  ul {
-    grid-gap: var(--spacing-l) var(--spacing-2xl);
-  }
+  display: flex;
+  flex-wrap: wrap;
+  /* Setup to draw grid borders */
+  border: var(--grid-border);
 }
 </style>

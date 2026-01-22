@@ -67,7 +67,7 @@ h6 {
   --color-bg: white;
   --color-fg: hsl(0, 0%, 15%);
   --color-fg-mute: hsl(0, 0%, 45%);
-  --color-border: lightgrey;
+  --color-border: pink;
 
   --spacing-s: 8px;
   --spacing-m: 16px;
@@ -79,6 +79,8 @@ h6 {
 
   --fontsize-s: 0.8rem;
   --fontsize-m: 1rem;
+
+  --grid-border: 2px solid var(--color-border);
 }
 
 body {
