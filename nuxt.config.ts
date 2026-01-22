@@ -12,6 +12,12 @@ export default defineNuxtConfig({
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     }
   },
+  fonts: {
+    defaults: {
+      weights: [400, 600, 800],
+      styles: ['normal']
+    }
+  },
   eslint: {
     config: {
       // Format with ESLint

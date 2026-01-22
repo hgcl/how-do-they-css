@@ -11,13 +11,12 @@
           : {}
       "
     >
-      <div class="card__label label">
-        <p>{{ index }}</p>
-        <p>{{ entry.source }}</p>
-      </div>
+      <p class="card__label">
+        <span class="card__label--index">{{ index }} /</span> {{ entry.source }}
+      </p>
       <component
         :is="htmlEl ? htmlEl : 'div'"
-        :class="`card__example ${itemStyle}`"
+        :class="`card__example neutral-font ${itemStyle}`"
         :style="[...entry.css]"
         tabindex="-1"
       >
@@ -42,27 +41,19 @@ li {
   /* Reset <li> styles */
   list-style: none;
   /* Custom styles */
-  flex: 1 0 25%;
-  min-width: 144px;
-  /* Setup to draw grid borders */
-  background: var(--color-border);
+  width: 100%;
 }
 .card__wrapper {
-  /* Reset <button> styles */
-  border: none;
-  background-color: transparent;
   /* Custom styles */
   cursor: pointer;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: var(--spacing-m) var(--spacing-m) var(--spacing-xl) var(--spacing-m);
+  padding: var(--spacing-m);
   /* Setup to draw grid borders */
   position: relative;
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-white);
   border: var(--grid-border);
 }
 
@@ -78,10 +69,16 @@ li {
 
 .card__label {
   color: var(--color-fg-mute);
-  font-weight: 600;
+  font-size: var(--fontsize-s);
+  text-align: left;
 }
+.card__label--index {
+  color: var(--color-fg-black);
+  font-weight: var(--bold);
+}
+
 .card__example {
-  margin: var(--spacing-l) auto 0;
+  margin: var(--spacing-xl) auto;
   background-color: var(--example-bg);
 }
 
@@ -94,6 +91,7 @@ li {
   justify-content: center;
   align-items: center;
   color: var(--color-fg-mute);
+  font-size: var(--fontsize-s);
 }
 
 /* INTERACTIONS */
@@ -105,7 +103,8 @@ li:hover .card__wrapper::after {
 
 .card__wrapper:focus,
 .card__wrapper:hover {
-  transition: transform 0.2s;
+  transition: 0.2s;
+  transition-property: transform, box-shadow;
   transform: translateY(-4px);
   box-shadow:
     0 20px 25px -5px rgb(0 0 0 / 0.1),
@@ -114,7 +113,7 @@ li:hover .card__wrapper::after {
 
 .card__wrapper:focus .card__label,
 .card__wrapper:hover .card__label {
-  color: var(--color-fg);
+  color: var(--color-fg-black);
 }
 
 .card__wrapper:focus .card__example,

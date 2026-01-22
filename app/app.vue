@@ -22,12 +22,20 @@ useSeoMeta({
 
 <style scoped>
 main {
-  padding: var(--spacing-m);
+  margin: 0 var(--spacing-m) var(--spacing-m);
+}
+h1 {
+  font-size: var(--fontsize-xl);
+  /* Transition between mobile and desktop */
+  transition: text-align 0.2s;
 }
 
 @media (width > 480px) {
   main {
-    padding: var(--spacing-l);
+    margin: 0 var(--spacing-l) var(--spacing-l);
+  }
+  h1 {
+    text-align: right;
   }
 }
 </style>

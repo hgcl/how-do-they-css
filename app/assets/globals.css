@@ -64,10 +64,11 @@ h6 {
  */
 
 :root {
-  --color-bg: white;
-  --color-fg: hsl(0, 0%, 15%);
+  --color-fg-default: hsl(0, 0%, 99%);
+  --color-fg-black: hsl(0, 0%, 15%);
   --color-fg-mute: hsl(0, 0%, 45%);
-  --color-border: pink;
+  --color-bg-default: rgb(93, 133, 139);
+  --color-bg-white: hsl(0, 0%, 99%);
 
   --spacing-s: 8px;
   --spacing-m: 16px;
@@ -77,10 +78,19 @@ h6 {
 
   --text-spacing-m: 1rem;
 
+  --fontfamily-headline: 'Zalando Sans Expanded', sans-serif;
+  --fontfamily-body: 'Zalando Sans', sans-serif;
+
   --fontsize-s: 0.8rem;
   --fontsize-m: 1rem;
+  --fontsize-l: 1.5rem;
+  --fontsize-xl: 2rem;
 
-  --grid-border: 2px solid var(--color-border);
+  --normal: 400;
+  --semibold: 600;
+  --bold: 800;
+
+  --grid-border: 2px solid var(--color-bg-default);
 }
 
 body {
@@ -90,16 +100,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   /* Theming */
-  color: var(--color-fg);
-  background-color: var(--color-bg);
+  color: var(--color-fg-default);
+  background-color: var(--color-bg-default);
   font-size: 16px;
   line-height: 1.5;
-  font-family: Inter, sans-serif;
+  font-family: var(--fontfamily-body);
+  font-weight: var(--normal);
+}
+
+h1,
+h2,
+h3,
+.headline {
+  font-family: var(--fontfamily-headline);
+  font-weight: var(--semibold);
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--color-fg-default);
 }
 
 /**
   UTILS
  */
+
+.neutral-font {
+  font-family: Inter, sans-serif;
+}
 
 .visually-hidden {
   border: 0;
@@ -110,8 +136,4 @@ body {
   position: absolute;
   white-space: nowrap;
   width: 1px;
-}
-
-.label {
-  font-size: var(--fontsize-m);
 }
