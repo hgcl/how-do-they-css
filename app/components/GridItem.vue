@@ -2,6 +2,7 @@
   <li v-for="(entry, index) in list" :key="entry.id">
     <button
       class="card__wrapper"
+      @click="() => openModal(entry)"
       :style="
         entry.cssHover
           ? {
@@ -24,16 +25,28 @@
       </component>
     </button>
   </li>
+
+  <CopyModal ref="copyModalRef" :entry="currentEntry" />
 </template>
 
 <script lang="ts" setup>
-import type { ShadowsCollectionItem, ButtonsCollectionItem } from '@nuxt/content'
+import type { Item } from '~/types/types'
+import type CopyModal from './CopyModal.vue'
 
 const { list, itemStyle, htmlEl } = defineProps<{
-  list: ShadowsCollectionItem[] | ButtonsCollectionItem[]
+  list: Item[]
   itemStyle?: 'square' | ''
   htmlEl?: keyof HTMLElementTagNameMap
 }>()
+
+const currentEntry = ref<Item | null>(null)
+const copyModalRef = ref<InstanceType<typeof CopyModal> | null>(null)
+
+const openModal = (entry: Item) => {
+  // Open modal with current entry data
+  currentEntry.value = entry
+  copyModalRef.value?.open()
+}
 </script>
 
 <style scoped>
