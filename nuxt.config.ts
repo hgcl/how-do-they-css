@@ -4,6 +4,14 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/eslint', '@nuxt/a11y', '@nuxt/content', '@nuxt/fonts'],
   css: ['~/assets/globals.css'],
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: 'en'
+      },
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    }
+  },
   eslint: {
     config: {
       // Format with ESLint
