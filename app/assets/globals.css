@@ -69,6 +69,7 @@ h6 {
   --color-fg-mute: hsl(0, 0%, 45%);
   --color-bg-default: hsl(188, 20%, 40%);
   --color-bg-white: white;
+  --color-bg-dark: hsl(180, 17%, 22%);
 
   --spacing-s: 8px;
   --spacing-m: 16px;
@@ -91,6 +92,9 @@ h6 {
   --bold: 800;
 
   --grid-border: 2px solid var(--color-bg-default);
+
+  --border-radius: 4px;
+  --box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 body {
