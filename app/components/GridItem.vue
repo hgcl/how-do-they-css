@@ -1,22 +1,11 @@
 <template>
   <li v-for="(entry, index) in list" :key="entry.id">
-    <button
-      class="card__wrapper"
-      @click="() => openModal(entry)"
-      :style="
-        entry.cssHover
-          ? {
-              '--example-bg': entry.cssHover.defaultBackgroundColor,
-              '--example-hover-bg': entry.cssHover.hoverBackgroundColor
-            }
-          : {}
-      "
-    >
+    <button class="card__wrapper" @click="() => openModal(entry)" :style="cssVariables(entry)">
       <p class="card__label">
         <span class="card__label--index">{{ index }} /</span> {{ entry.source }}
       </p>
       <component
-        :is="htmlEl ? htmlEl : 'div'"
+        :is="entry.type ? entry.type : 'div'"
         :class="`card__example neutral-font ${itemStyle}`"
         :style="[...entry.css]"
         tabindex="-1"
@@ -33,12 +22,14 @@
 import type { Item } from '~/types/types'
 import type CopyModal from './CopyModal.vue'
 
-const { list, itemStyle, htmlEl } = defineProps<{
+const { list, itemStyle } = defineProps<{
   list: Item[]
   itemStyle?: 'square' | ''
-  htmlEl?: keyof HTMLElementTagNameMap
 }>()
 
+/**
+ * MODAL
+ */
 const currentEntry = ref<Item | null>(null)
 const copyModalRef = ref<InstanceType<typeof CopyModal> | null>(null)
 
@@ -46,6 +37,28 @@ const openModal = (entry: Item) => {
   // Open modal with current entry data
   currentEntry.value = entry
   copyModalRef.value?.open()
+}
+
+/**
+ * CSS VARIABLES
+ * add variables based on data
+ * returns `{ "--x-color": "red", "--x-color-hover": "blue" }`
+ */
+
+const cssVariables = (entry: Item): Record<string, string> => {
+  if (!entry.interactiveCss) return {}
+
+  let variables: Record<string, string> = {}
+
+  for (const [key, value] of Object.entries(entry.interactiveCss.default ?? {})) {
+    variables[`--x-${key}`] = String(value ?? '')
+  }
+  if (entry.interactiveCss.hover) {
+    for (const [key, value] of Object.entries(entry.interactiveCss.hover)) {
+      variables[`--x-${key}-hover`] = String(value ?? '')
+    }
+  }
+  return variables
 }
 </script>
 
@@ -92,7 +105,8 @@ li {
 
 .card__example {
   margin: var(--spacing-xl) auto;
-  background-color: var(--example-bg);
+  background-color: var(--x-background-color);
+  color: var(--x-color);
 }
 
 /* Examples should be a square */
@@ -131,6 +145,7 @@ li:hover .card__wrapper::after {
 
 .card__wrapper:focus .card__example,
 .card__wrapper:hover .card__example {
-  background-color: var(--example-hover-bg);
+  background-color: var(--x-background-color-hover);
+  color: var(--x-color-hover);
 }
 </style>

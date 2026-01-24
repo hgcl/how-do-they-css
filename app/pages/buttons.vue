@@ -1,6 +1,6 @@
 <template>
   <GridList v-if="buttons">
-    <GridItem :list="buttons" html-el="button" />
+    <GridItem :list="buttons" />
   </GridList>
 </template>
 

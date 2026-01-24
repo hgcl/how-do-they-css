@@ -1,6 +1,7 @@
 {
   "source": "GitHub",
   "comment": "Default",
+  "type": "button",
   "css": [
     "cursor: pointer",
     "color: #25292e",
@@ -13,9 +14,11 @@
     "transition: 80ms cubic-bezier(.65,0,.35,1)",
     "transition-property: color,fill,background-color,border-color"
   ],
-  "cssHover": {
-    "defaultBackgroundColor": "#f6f8fa",
-    "hoverBackgroundColor": "#eff2f5"
+  "interactiveCss": {
+    "hover": {
+      "background-color": "#eff2f5"
+    },
+    "default": { "background-color": "#f6f8fa" }
   },
   "dateModified": "2026-01-20"
 }

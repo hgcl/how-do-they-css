@@ -4,11 +4,12 @@ import { z } from 'zod'
 const baseSchema = (config = {}) =>
   z.object({
     ...config,
+    type: z.string().optional(),
     css: z.array(z.string()),
-    cssHover: z
+    interactiveCss: z
       .object({
-        defaultBackgroundColor: z.string(),
-        hoverBackgroundColor: z.string()
+        hover: z.record(z.string()).optional(),
+        default: z.record(z.string())
       })
       .optional(),
     source: z.string(),

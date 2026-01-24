@@ -3,7 +3,7 @@
     <header class="copy-modal__header">
       <button @click="close">Close</button>
     </header>
-    <pre><code>{{ formattedCss(entry?.css) }}</code></pre>
+    <pre><code>{{ entry ? formatCss(entry) : "" }}</code></pre>
   </dialog>
 </template>
 
@@ -12,13 +12,28 @@ import type { Item } from '~/types/types'
 
 const { entry } = defineProps<{ entry: Item | null }>()
 
-const formattedCss = (cssLines?: string[]) =>
-  cssLines &&
-  cssLines
-    .map(
-      (line) => (line.endsWith(';') ? line : `${line};`) // add semicolon if missing
+// TODO: refactor formatCss
+const formatCss = (entry: Item) => {
+  if (!entry.type)
+    return entry.css.map((line) => (line.endsWith(';') ? line : `${line};`)).join('\n')
+
+  const defaultCssAttr = entry.css
+    .map((line) => (line.endsWith(';') ? line : `  ${line};`))
+    .concat(
+      Object.entries(entry.interactiveCss?.default ?? {}).map(([prop, val]) => `  ${prop}: ${val};`)
     )
     .join('\n')
+
+  const fullDefaultCss = `${entry.type} {\n${defaultCssAttr}\n}`
+
+  const hoverCssAttr = Object.entries(entry.interactiveCss?.hover ?? {})
+    .map(([prop, val]) => `  ${prop}: ${val};`)
+    .join('\n')
+
+  const fullHoverCss = `${entry.type}:hover, ${entry.type}:focus {\n${hoverCssAttr}\n}`
+
+  return `${fullDefaultCss}\n\n${fullHoverCss}`
+}
 
 /**
  * MODAL FUNCTIONS

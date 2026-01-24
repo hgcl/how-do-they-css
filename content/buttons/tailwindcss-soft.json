@@ -1,6 +1,7 @@
 {
   "source": "Tailwind CSS",
   "comment": "Soft",
+  "type": "button",
   "css": [
     "cursor: pointer",
     "border: none",
@@ -10,9 +11,11 @@
     "padding-block: .375rem",
     "padding-inline: .625rem"
   ],
-  "cssHover": {
-    "defaultBackgroundColor": "oklch(96.2% .018 272.314)",
-    "hoverBackgroundColor": "oklch(93% .034 272.788)"
+  "interactiveCss": {
+    "hover": {
+      "background-color": "oklch(93% .034 272.788)"
+    },
+    "default": { "background-color": "oklch(96.2% .018 272.314)" }
   },
   "dateModified": "2026-01-20"
 }
