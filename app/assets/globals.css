@@ -64,11 +64,11 @@ h6 {
  */
 
 :root {
-  --color-fg-default: hsl(0, 0%, 99%);
+  --color-fg-default: white;
   --color-fg-black: hsl(0, 0%, 15%);
   --color-fg-mute: hsl(0, 0%, 45%);
-  --color-bg-default: rgb(93, 133, 139);
-  --color-bg-white: hsl(0, 0%, 99%);
+  --color-bg-default: hsl(188, 20%, 40%);
+  --color-bg-white: white;
 
   --spacing-s: 8px;
   --spacing-m: 16px;
