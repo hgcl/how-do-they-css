@@ -11,6 +11,6 @@ definePageMeta({
 
 // Get all shadows entries
 const { data: shadows } = await useAsyncData('shadows', () => {
-  return queryCollection('shadows').order('source', 'DESC').all()
+  return queryCollection('shadows').order('source', 'ASC').all()
 })
 </script>

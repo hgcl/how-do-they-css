@@ -11,6 +11,6 @@ definePageMeta({
 
 // Get all buttons entries
 const { data: buttons } = await useAsyncData('buttons', () => {
-  return queryCollection('buttons').order('source', 'DESC').all()
+  return queryCollection('buttons').order('source', 'ASC').all()
 })
 </script>
