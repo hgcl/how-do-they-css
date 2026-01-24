@@ -1,5 +1,5 @@
 {
-  "source": "Tailwind CSS",
+  "source": "Tailwind CSS",
   "comment": "shadow-2xl",
   "css": ["box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25)"],
   "dateModified": "2026-01-20"
