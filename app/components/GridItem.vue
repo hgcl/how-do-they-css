@@ -25,6 +25,7 @@
 <script lang="ts" setup>
 import type { Item } from '~/types/types'
 import type CopyModal from './CopyModal.vue'
+import { generateCss } from '~/utils/generateCss'
 
 const { entry, index } = defineProps<{
   entry: Item
@@ -49,56 +50,6 @@ const openModal = (entry: Item) => {
 
 const styleEl = ref<HTMLStyleElement | null>(null)
 const formattedCss = ref<string>('')
-
-const generateCss = (entry: Item, index: number): { injectedCss: string; formattedCss: string } => {
-  const scope = `[data-scope="${index}"]`
-  const tabs = '  '
-  let formattedCss = ''
-  let injectedCss = ''
-
-  if (!entry.css) return { injectedCss, formattedCss }
-
-  for (const rule of entry.css) {
-    const { rest, hover, hoverParent } = rule.code
-    const parentSelector = rule.parent ? rule.parent.selector : ''
-
-    // If direct parent > child, add ">"
-    // If not direct parent, add single space
-    // If no parent, add no space
-    const connection =
-      rule.parent && rule.parent.direct ? ' > ' : rule.parent && !rule.parent.direct ? ' ' : ''
-
-    const restCss = rest?.length
-      ? `${parentSelector}${connection}${rule.selector} ` +
-        wrapCss(rest.map((line) => `${tabs}${line};`).join('\n'))
-      : ''
-
-    const hoverCss = hover
-      ? `${parentSelector}${connection}${rule.selector}:hover ` +
-        wrapCss(
-          Object.entries(hover)
-            .map(([k, v]) => `${tabs}${k}: ${v};`)
-            .join('')
-        )
-      : ''
-
-    const hoverParentCss = hoverParent
-      ? `${parentSelector}:hover${connection}${rule.selector} ` +
-        wrapCss(
-          Object.entries(hoverParent)
-            .map(([k, v]) => `${tabs}${k}: ${v};`)
-            .join('')
-        )
-      : ''
-
-    injectedCss += `${scope} ${restCss} ${hoverCss && scope} ${hoverCss && hoverCss} ${hoverParentCss && scope} ${hoverParentCss && hoverParentCss}`
-    formattedCss += `${restCss}${hoverCss && hoverCss}${hoverParentCss && hoverParentCss}\n`
-  }
-
-  return { injectedCss, formattedCss }
-}
-
-const wrapCss = (cssCode: string) => `{\n${cssCode}\n}\n`
 
 onMounted(() => {
   const style = document.createElement('style')
@@ -189,10 +140,10 @@ li:hover .card__wrapper::after {
 
 .card__wrapper:focus,
 .card__wrapper:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--box-shadow);
   transition: 0.2s;
   transition-property: transform, box-shadow;
-  transform: translateY(-3px);
-  box-shadow: var(--box-shadow);
 }
 
 .card__wrapper:focus .card__label,

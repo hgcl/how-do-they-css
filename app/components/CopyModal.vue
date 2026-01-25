@@ -51,17 +51,7 @@ watch(
  * COPY CODE TO CLIPBOARD
  */
 
-const copied = ref(false)
-
-async function copyCode(code: string) {
-  try {
-    await navigator.clipboard.writeText(code)
-    copied.value = true
-    setTimeout(() => (copied.value = false), 3000)
-  } catch (err) {
-    console.error('Failed to copy: ', err)
-  }
-}
+const { copyCode } = useCopyCode()
 
 /**
  * MODAL FUNCTIONS
