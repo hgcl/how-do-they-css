@@ -9,8 +9,8 @@
         v-if="entry.html"
         class="card__example"
         :data-scope="index"
-        v-html="entry.html"
         tabindex="-1"
+        v-html="entry.html"
       ></div>
       <!-- If no HTML (square) -->
       <div v-if="!entry.html" :data-scope="index" tabindex="-1">

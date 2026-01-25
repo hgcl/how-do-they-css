@@ -9,7 +9,7 @@
     </header>
     <h3 v-if="entry?.html">HTML</h3>
     <div v-if="entry?.html" class="copy-modal__code-wrapper">
-      <CopyButton @copy="copyCode(entry.html)" v-if="entry?.html" />
+      <CopyButton v-if="entry?.html" @copy="copyCode(entry.html)" />
       <div v-html="highlightedHtml"></div>
     </div>
     <h3>CSS</h3>
