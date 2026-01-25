@@ -7,9 +7,15 @@
       </div>
       <CloseButton @click="close" />
     </header>
+    <h3 v-if="entry?.html">HTML</h3>
+    <div v-if="entry?.html" class="copy-modal__code-wrapper">
+      <CopyButton @copy="copyCode(entry.html)" v-if="entry?.html" />
+      <div v-html="highlightedHtml"></div>
+    </div>
+    <h3>CSS</h3>
     <div class="copy-modal__code-wrapper">
-      <CopyButton @click="copyCode" :isCopied="copied" />
-      <div v-html="highlightedCss" />
+      <CopyButton @copy="copyCode(formattedCss)" />
+      <div v-html="highlightedCss"></div>
     </div>
   </dialog>
 </template>
@@ -18,54 +24,28 @@
 import type { Item } from '~/types/types'
 import { highlight } from '~/utils/highlightCode'
 
-const { entry } = defineProps<{ entry: Item | null }>()
+const { entry, formattedCss } = defineProps<{ entry: Item | null; formattedCss: string }>()
 
 /**
  * HIGHLIGHT CODE
  */
 
-const formattedCss = ref('')
 const highlightedCss = ref('')
+const highlightedHtml = ref('')
 watch(
   () => entry,
   async (val) => {
     if (!val) {
       highlightedCss.value = ''
+      highlightedHtml.value = ''
       return
     }
 
-    formattedCss.value = formatCss(val)
-    highlightedCss.value = await highlight(formattedCss.value, 'css')
+    highlightedCss.value = await highlight(formattedCss, 'css')
+    highlightedHtml.value = await highlight(val.html, 'html')
   },
   { immediate: true }
 )
-
-/**
- * FORMAT CSS CODE
- * TODO: refactor formatCss
- */
-
-const formatCss = (entry: Item) => {
-  if (!entry.type)
-    return entry.css.map((line) => (line.endsWith(';') ? line : `${line};`)).join('\n')
-
-  const defaultCssAttr = entry.css
-    .map((line) => (line.endsWith(';') ? line : `  ${line};`))
-    .concat(
-      Object.entries(entry.interactiveCss?.default ?? {}).map(([prop, val]) => `  ${prop}: ${val};`)
-    )
-    .join('\n')
-
-  const fullDefaultCss = `${entry.type} {\n${defaultCssAttr}\n}`
-
-  const hoverCssAttr = Object.entries(entry.interactiveCss?.hover ?? {})
-    .map(([prop, val]) => `  ${prop}: ${val};`)
-    .join('\n')
-
-  const fullHoverCss = `${entry.type}:hover, ${entry.type}:focus {\n${hoverCssAttr}\n}`
-
-  return `${fullDefaultCss}\n\n${fullHoverCss}`
-}
 
 /**
  * COPY CODE TO CLIPBOARD
@@ -73,9 +53,9 @@ const formatCss = (entry: Item) => {
 
 const copied = ref(false)
 
-async function copyCode() {
+async function copyCode(code: string) {
   try {
-    await navigator.clipboard.writeText(formattedCss.value)
+    await navigator.clipboard.writeText(code)
     copied.value = true
     setTimeout(() => (copied.value = false), 3000)
   } catch (err) {
@@ -111,11 +91,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  margin-bottom: var(--spacing-m);
+  margin-bottom: var(--spacing-l);
 }
 
 .copy-modal__code-wrapper {
   position: relative; /* for copy button to be correctly positioned */
+  margin-block: var(--spacing-s) var(--spacing-l);
 }
 
 /* Code highlighting */

@@ -15,8 +15,8 @@ ul {
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
-    minmax(min(100%/2, max(144px, 100%/5)), 1fr)
-  ); /* 2-5 cols, with min-width of 144px per column */
+    minmax(min(100%/1, max(208px, 100%/5)), 1fr)
+  ); /* 1-5 cols, with min-width of 144px per column */
   /* Setup to draw grid borders */
   background: var(--color-bg-default);
 }

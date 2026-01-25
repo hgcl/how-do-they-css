@@ -1,0 +1,55 @@
+{
+  "source": "Figma",
+  "comment": "CTA primary link",
+  "html": "<a href=\"\"><span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"none\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" class=\"btn-builtin-icon fig-bni7vm\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M12.522 4.25 20 12l-7.478 7.75-.733-.709 6.302-6.531H4v-1.02h14.09L11.79 4.959z\" clip-rule=\"evenodd\"></path></svg><span>Primary CTA</span></a>",
+  "css": [
+    {
+      "selector": "a",
+      "code": {
+        "rest": [
+          "display: inline-flex",
+          "justify-content: center",
+          "border: none",
+          "border-radius: 8px",
+          "width: 100%",
+          "padding: 0.75rem 1.25rem",
+          "background: black",
+          "color: white",
+          "font-weight: 600",
+          "text-decoration: none",
+          "text-align: center",
+          "transition: border-radius 160ms ease-out"
+        ],
+        "hover": { "border-radius": "0" }
+      }
+    },
+    {
+      "selector": "span",
+      "parent": { "selector": "a", "direct": true },
+      "code": {
+        "rest": ["position: relative", "display: block", "transition: translate 160ms ease-out"],
+        "hoverParent": { "translate": "0.5625rem" }
+      }
+    },
+    {
+      "selector": "svg",
+      "parent": { "selector": "a", "direct": false },
+      "code": {
+        "rest": [
+          "opacity: 0",
+          "transition: opacity 160ms ease-out",
+          "width: 21px",
+          "height: 21px",
+          "display: inline-block",
+          "position: absolute",
+          "inset: 50% auto auto -23px",
+          "translate: 0 -50%"
+        ],
+        "hoverParent": {
+          "opacity": "1"
+        }
+      }
+    }
+  ],
+  "dateModified": "2026-01-20"
+}

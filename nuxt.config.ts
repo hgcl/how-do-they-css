@@ -13,10 +13,11 @@ export default defineNuxtConfig({
     }
   },
   fonts: {
-    defaults: {
-      weights: [400, 600, 800],
-      styles: ['normal']
-    }
+    families: [
+      { name: 'Inter', weights: [400, 500, 600, 800] },
+      { name: 'Zalando Sans', weights: [400, 600] },
+      { name: 'Zalando Sans Expanded', weights: [600] }
+    ]
   },
   eslint: {
     config: {

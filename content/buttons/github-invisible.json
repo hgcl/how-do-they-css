@@ -1,23 +1,29 @@
 {
   "source": "GitHub",
-  "comment": "Invisible",
-  "type": "button",
+  "comment": "Invisible button",
+  "html": "<button>Invisible</button>",
   "css": [
-    "cursor: pointer",
-    "color: #25292e",
-    "border: transparent",
-    "border-radius: 0.375rem",
-    "padding: 0 0.75rem",
-    "height: 2rem",
-    "font-weight: 500",
-    "transition: 80ms cubic-bezier(.65,0,.35,1)",
-    "transition-property: color,fill,background-color,border-color"
+    {
+      "selector": "button",
+      "code": {
+        "rest": [
+          "cursor: pointer",
+          "color: #25292e",
+          "font-weight: 600",
+          "background-color: transparent",
+          "border: transparent",
+          "border-radius: 0.375rem",
+          "padding: 0 0.75rem",
+          "height: 2rem",
+          "font-weight: 500",
+          "transition: 80ms cubic-bezier(.65,0,.35,1)",
+          "transition-property: color,fill,background-color,border-color"
+        ],
+        "hover": {
+          "background-color": "#818b981a"
+        }
+      }
+    }
   ],
-  "interactiveCss": {
-    "hover": {
-      "background-color": "#818b981a"
-    },
-    "default": { "background-color": "transparent" }
-  },
   "dateModified": "2026-01-20"
 }

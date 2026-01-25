@@ -1,21 +1,26 @@
 {
   "source": "Tailwind CSS",
-  "comment": "Soft",
-  "type": "button",
+  "comment": "Soft button",
+  "html": "<button>Soft</button>",
   "css": [
-    "cursor: pointer",
-    "border: none",
-    "color: oklch(51.1% .262 276.966)",
-    "font-weight: 600",
-    "border-radius: .375rem",
-    "padding-block: .375rem",
-    "padding-inline: .625rem"
+    {
+      "selector": "button",
+      "code": {
+        "rest": [
+          "cursor: pointer",
+          "border: none",
+          "color: oklch(51.1% .262 276.966)",
+          "font-weight: 600",
+          "background-color: oklch(96.2% .018 272.314)",
+          "border-radius: .375rem",
+          "padding-block: .375rem",
+          "padding-inline: .625rem"
+        ],
+        "hover": {
+          "background-color": "oklch(93% .034 272.788)"
+        }
+      }
+    }
   ],
-  "interactiveCss": {
-    "hover": {
-      "background-color": "oklch(93% .034 272.788)"
-    },
-    "default": { "background-color": "oklch(96.2% .018 272.314)" }
-  },
   "dateModified": "2026-01-20"
 }

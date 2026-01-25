@@ -1,12 +1,12 @@
 <template>
   <GridList v-if="buttons">
-    <GridItem :list="buttons" />
+    <GridItem v-for="(entry, index) in buttons" :key="entry.id" :entry="entry" :index="index" />
   </GridList>
 </template>
 
 <script lang="ts" setup>
 definePageMeta({
-  title: 'Buttons'
+  title: 'Buttons & links'
 })
 
 // Get all buttons entries

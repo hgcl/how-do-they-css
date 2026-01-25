@@ -81,6 +81,7 @@ h6 {
 
   --fontfamily-headline: 'Zalando Sans Expanded', sans-serif;
   --fontfamily-body: 'Zalando Sans', sans-serif;
+  --fontfamily-neutral: Inter, sans;
 
   --fontsize-s: 0.8rem;
   --fontsize-m: 1rem;
@@ -89,7 +90,6 @@ h6 {
 
   --normal: 400;
   --semibold: 600;
-  --bold: 800;
 
   --grid-border: 2px solid var(--color-bg-default);
 
@@ -126,10 +126,6 @@ h3,
 /**
   UTILS
  */
-
-.neutral-font {
-  font-family: Inter, sans-serif;
-}
 
 .visually-hidden {
   border: 0;

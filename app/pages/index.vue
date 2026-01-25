@@ -1,6 +1,6 @@
 <template>
   <GridList v-if="shadows">
-    <GridItem :list="shadows" :item-style="'square'" />
+    <GridItem v-for="(entry, index) in shadows" :key="entry.id" :entry="entry" :index="index" />
   </GridList>
 </template>
 

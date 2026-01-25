@@ -4,16 +4,20 @@ import { z } from 'zod'
 const baseSchema = (config = {}) =>
   z.object({
     ...config,
-    type: z.string().optional(),
-    css: z.array(z.string()),
-    interactiveCss: z
-      .object({
-        hover: z.record(z.string()).optional(),
-        default: z.record(z.string())
-      })
-      .optional(),
     source: z.string(),
     comment: z.string(),
+    html: z.string(),
+    css: z.array(
+      z.object({
+        selector: z.string(),
+        parent: z.object({ selector: z.string(), direct: z.boolean() }).optional(),
+        code: z.object({
+          rest: z.array(z.string()),
+          hover: z.record(z.string()).optional(),
+          hoverParent: z.record(z.string()).optional()
+        })
+      })
+    ),
     dateModified: z.string()
   })
 

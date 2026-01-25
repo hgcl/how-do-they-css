@@ -1,21 +1,26 @@
 {
   "source": "Tailwind CSS",
-  "comment": "Primary",
-  "type": "button",
+  "comment": "Primary button",
+  "html": "<button>Primary</button>",
   "css": [
-    "cursor: pointer",
-    "border: none",
-    "color: #fff",
-    "font-weight: 600",
-    "border-radius: .375rem",
-    "padding-block: .375rem",
-    "padding-inline: .625rem"
+    {
+      "selector": "button",
+      "code": {
+        "rest": [
+          "cursor: pointer",
+          "border: none",
+          "color: #fff",
+          "font-weight: 600",
+          "background-color: oklch(51.1% .262 276.966)",
+          "border-radius: .375rem",
+          "padding-block: .375rem",
+          "padding-inline: .625rem"
+        ],
+        "hover": {
+          "background-color": "oklch(58.5% .233 277.117)"
+        }
+      }
+    }
   ],
-  "interactiveCss": {
-    "hover": {
-      "background-color": "oklch(58.5% .233 277.117)"
-    },
-    "default": { "background-color": "oklch(51.1% .262 276.966)" }
-  },
   "dateModified": "2026-01-20"
 }

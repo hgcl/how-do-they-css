@@ -1,30 +1,34 @@
 <template>
-  <li v-for="(entry, index) in list" :key="entry.id">
-    <button class="card__wrapper" @click="() => openModal(entry)" :style="cssVariables(entry)">
+  <li>
+    <div tabindex="0" role="button" class="card__wrapper" @click="() => openModal(entry)">
       <p class="card__label">
         <span class="card__label--index">{{ index }} /</span> {{ entry.source }}
       </p>
-      <component
-        :is="entry.type ? entry.type : 'div'"
-        :class="`card__example neutral-font ${itemStyle}`"
-        :style="[...entry.css]"
+      <!-- If HTML -->
+      <div
+        v-if="entry.html"
+        class="card__example"
+        :data-scope="index"
+        v-html="entry.html"
         tabindex="-1"
-      >
-        {{ entry.comment }}
-      </component>
-    </button>
+      ></div>
+      <!-- If no HTML (square) -->
+      <div v-if="!entry.html" :data-scope="index" tabindex="-1">
+        <div :class="`card__example square`">{{ entry.comment }}</div>
+      </div>
+    </div>
   </li>
 
-  <CopyModal ref="copyModalRef" :entry="currentEntry" />
+  <CopyModal ref="copyModalRef" :entry="currentEntry" :formatted-css="formattedCss" />
 </template>
 
 <script lang="ts" setup>
 import type { Item } from '~/types/types'
 import type CopyModal from './CopyModal.vue'
 
-const { list, itemStyle } = defineProps<{
-  list: Item[]
-  itemStyle?: 'square' | ''
+const { entry, index } = defineProps<{
+  entry: Item
+  index: number
 }>()
 
 /**
@@ -40,29 +44,78 @@ const openModal = (entry: Item) => {
 }
 
 /**
- * CSS VARIABLES
- * add variables based on data
- * returns `{ "--x-color": "red", "--x-color-hover": "blue" }`
+ * INJECT EXAMPLE CSS
  */
 
-const cssVariables = (entry: Item): Record<string, string> => {
-  if (!entry.interactiveCss) return {}
+const styleEl = ref<HTMLStyleElement | null>(null)
+const formattedCss = ref<string>('')
 
-  let variables: Record<string, string> = {}
+const generateCss = (entry: Item, index: number): { injectedCss: string; formattedCss: string } => {
+  const scope = `[data-scope="${index}"]`
+  const tabs = '  '
+  let formattedCss = ''
+  let injectedCss = ''
 
-  for (const [key, value] of Object.entries(entry.interactiveCss.default ?? {})) {
-    variables[`--x-${key}`] = String(value ?? '')
+  if (!entry.css) return { injectedCss, formattedCss }
+
+  for (const rule of entry.css) {
+    const { rest, hover, hoverParent } = rule.code
+    const parentSelector = rule.parent ? rule.parent.selector : ''
+
+    // If direct parent > child, add ">"
+    // If not direct parent, add single space
+    // If no parent, add no space
+    const connection =
+      rule.parent && rule.parent.direct ? ' > ' : rule.parent && !rule.parent.direct ? ' ' : ''
+
+    const restCss = rest?.length
+      ? `${parentSelector}${connection}${rule.selector} ` +
+        wrapCss(rest.map((line) => `${tabs}${line};`).join('\n'))
+      : ''
+
+    const hoverCss = hover
+      ? `${parentSelector}${connection}${rule.selector}:hover ` +
+        wrapCss(
+          Object.entries(hover)
+            .map(([k, v]) => `${tabs}${k}: ${v};`)
+            .join('')
+        )
+      : ''
+
+    const hoverParentCss = hoverParent
+      ? `${parentSelector}:hover${connection}${rule.selector} ` +
+        wrapCss(
+          Object.entries(hoverParent)
+            .map(([k, v]) => `${tabs}${k}: ${v};`)
+            .join('')
+        )
+      : ''
+
+    injectedCss += `${scope} ${restCss} ${hoverCss && scope} ${hoverCss && hoverCss} ${hoverParentCss && scope} ${hoverParentCss && hoverParentCss}`
+    formattedCss += `${restCss}${hoverCss && hoverCss}${hoverParentCss && hoverParentCss}\n`
   }
-  if (entry.interactiveCss.hover) {
-    for (const [key, value] of Object.entries(entry.interactiveCss.hover)) {
-      variables[`--x-${key}-hover`] = String(value ?? '')
-    }
-  }
-  return variables
+
+  return { injectedCss, formattedCss }
 }
+
+const wrapCss = (cssCode: string) => `{\n${cssCode}\n}\n`
+
+onMounted(() => {
+  const style = document.createElement('style')
+  formattedCss.value = generateCss(entry, index).formattedCss
+  style.textContent = generateCss(entry, index).injectedCss
+  document.head.appendChild(style)
+  styleEl.value = style
+})
+
+onBeforeUnmount(() => {
+  styleEl.value?.remove()
+})
 </script>
 
 <style scoped>
+/* GENERAL CARD STYLES */
+
 li {
   /* Reset <li> styles */
   list-style: none;
@@ -84,6 +137,7 @@ li {
 }
 
 .card__wrapper::after {
+  pointer-events: none; /* important, so that :hover works in .card__example */
   /* Setup to draw grid borders */
   content: '';
   position: absolute;
@@ -100,17 +154,22 @@ li {
 }
 .card__label--index {
   color: var(--color-fg-black);
-  font-weight: var(--bold);
+  font-weight: var(--semibold);
 }
+
+/* CARD EXAMPLE */
 
 .card__example {
-  margin: var(--spacing-xl) auto;
-  background-color: var(--x-background-color);
-  color: var(--x-color);
+  width: 100%;
+  margin-block: var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fontfamily-neutral);
 }
 
-/* Examples should be a square */
 .card__example.square {
+  margin: var(--spacing-xl) auto;
   aspect-ratio: 1/1;
   min-width: 96px;
   width: 50%;
@@ -132,18 +191,12 @@ li:hover .card__wrapper::after {
 .card__wrapper:hover {
   transition: 0.2s;
   transition-property: transform, box-shadow;
-  transform: translateY(-4px);
+  transform: translateY(-3px);
   box-shadow: var(--box-shadow);
 }
 
 .card__wrapper:focus .card__label,
 .card__wrapper:hover .card__label {
   color: var(--color-fg-black);
-}
-
-.card__wrapper:focus .card__example,
-.card__wrapper:hover .card__example {
-  background-color: var(--x-background-color-hover);
-  color: var(--x-color-hover);
 }
 </style>

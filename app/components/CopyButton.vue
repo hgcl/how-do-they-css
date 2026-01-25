@@ -1,5 +1,5 @@
 <template>
-  <button :class="isCopied ? 'copied' : ''">
+  <button :class="{ copied: isCopied }" @click="handleClick">
     <span>{{ label }}</span>
     <svg
       v-if="!isCopied"
@@ -19,9 +19,21 @@
 </template>
 
 <script lang="ts" setup>
-const { isCopied } = defineProps<{ isCopied: boolean }>()
+const emit = defineEmits<{
+  (e: 'copy'): void
+}>()
 
-const label = computed(() => (isCopied ? 'Copied to clipboard!' : 'Copy'))
+const isCopied = ref(false)
+const label = computed(() => (isCopied.value ? 'Copied to clipboard!' : 'Copy'))
+
+const handleClick = () => {
+  emit('copy')
+
+  isCopied.value = true
+  setTimeout(() => {
+    isCopied.value = false
+  }, 3000)
+}
 </script>
 
 <style scoped>

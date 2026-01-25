@@ -26,6 +26,7 @@ main {
 }
 h1 {
   font-size: var(--fontsize-xl);
+  margin-bottom: var(--spacing-s);
   /* Transition between mobile and desktop */
   transition: text-align 0.2s;
 }
