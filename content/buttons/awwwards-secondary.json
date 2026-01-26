@@ -1,0 +1,29 @@
+{
+  "source": "Awwwards",
+  "comment": "Secondary button",
+  "html": "<button>Secondary</button>",
+  "css": [
+    {
+      "selector": "button",
+      "code": {
+        "rest": [
+          "cursor: pointer",
+          "display: inline-flex",
+          "justify-content: center",
+          "align-items: center",
+          "white-space: nowrap",
+          "background-color: transparent",
+          "color: #222",
+          "font-weight: 500",
+          "min-width: 42px",
+          "height: 42px",
+          "padding: 0 20px",
+          "border: 0.5px solid #222",
+          "border-radius: 8px"
+        ],
+        "hover": { "color": "#fff", "background-color": "#383838" }
+      }
+    }
+  ],
+  "dateModified": "2026-01-20"
+}

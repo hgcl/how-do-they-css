@@ -1,7 +1,7 @@
 {
   "source": "Tailwind CSS",
-  "comment": "Soft button",
-  "html": "<button>Soft</button>",
+  "comment": "Soft round button",
+  "html": "<button>Soft round</button>",
   "css": [
     {
       "selector": "button",
@@ -13,13 +13,20 @@
           "font-size: .875rem",
           "font-weight: 600",
           "background-color: oklch(96.2% .018 272.314)",
-          "border-radius: .375rem",
+          "border-radius: 1000px",
           "padding-block: .375rem",
-          "padding-inline: .625rem"
+          "padding-inline: .75rem"
         ],
         "hover": {
           "background-color": "oklch(93% .034 272.788)"
         }
+      }
+    },
+    {
+      "selector": "svg",
+      "parent": { "selector": "button", "direct": true },
+      "code": {
+        "rest": ["width: 1.25rem", "height: 1.25rem"]
       }
     }
   ],

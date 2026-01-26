@@ -1,7 +1,7 @@
 {
   "source": "Figma",
-  "comment": "CTA secondary link",
-  "html": "<a href=\"\"><span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"none\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" class=\"btn-builtin-icon fig-bni7vm\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M12.522 4.25 20 12l-7.478 7.75-.733-.709 6.302-6.531H4v-1.02h14.09L11.79 4.959z\" clip-rule=\"evenodd\"></path></svg><span>Secondary CTA</span></a>",
+  "comment": "Primary link",
+  "html": "<a href=\"\"><span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"none\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" class=\"btn-builtin-icon fig-bni7vm\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M12.522 4.25 20 12l-7.478 7.75-.733-.709 6.302-6.531H4v-1.02h14.09L11.79 4.959z\" clip-rule=\"evenodd\"></path></svg><span>Primary</span></a>",
   "css": [
     {
       "selector": "a",
@@ -9,13 +9,11 @@
         "rest": [
           "display: inline-flex",
           "justify-content: center",
-          "border: none",
           "border-radius: 8px",
           "width: 100%",
           "padding: 0.75rem 1.25rem",
-          "background: transparent",
-          "color: black",
-          "box-shadow: inset 0 0 0 1px #000000",
+          "background: black",
+          "color: white",
           "font-weight: 600",
           "text-decoration: none",
           "text-align: center",

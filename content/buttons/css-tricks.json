@@ -1,0 +1,33 @@
+{
+  "source": "CSS Tricks",
+  "comment": "Action link",
+  "html": "<a href=\"\">Action link</a>",
+  "css": [
+    {
+      "selector": "a",
+      "code": {
+        "rest": [
+          "display: block",
+          "width: 100%",
+          "font-weight: 700",
+          "text-transform: uppercase",
+          "text-decoration: none",
+          "white-space: nowrap",
+          "text-align: center",
+          "background-color: #5e5e5e",
+          "color: #fff",
+          "border-radius: 4px",
+          "border-bottom: 1px solid #262626",
+          "border-right: 1px solid #262626",
+          "box-shadow: inset 1px 1px 0 #777, 0 2px 3px rgba(0,0,0,.4)",
+          "padding: 1rem 1.5rem",
+          "transition: .07s"
+        ],
+        "hover": {
+          "opacity": "0.66"
+        }
+      }
+    }
+  ],
+  "dateModified": "2026-01-20"
+}
