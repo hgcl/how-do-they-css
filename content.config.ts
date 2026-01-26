@@ -11,11 +11,7 @@ const baseSchema = (config = {}) =>
       z.object({
         selector: z.string(),
         parent: z.object({ selector: z.string(), direct: z.boolean() }).optional(),
-        code: z.object({
-          rest: z.array(z.string()),
-          hover: z.record(z.string()).optional(),
-          hoverParent: z.record(z.string()).optional()
-        })
+        code: z.array(z.string())
       })
     ),
     dateModified: z.string()

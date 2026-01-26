@@ -5,29 +5,25 @@
   "css": [
     {
       "selector": "button",
-      "code": {
-        "rest": [
-          "cursor: pointer",
-          "border: none",
-          "color: #fff",
-          "font-size: .875rem",
-          "font-weight: 600",
-          "background-color: oklch(51.1% .262 276.966)",
-          "border-radius: 1000px",
-          "padding-block: .375rem",
-          "padding-inline: .75rem"
-        ],
-        "hover": {
-          "background-color": "oklch(58.5% .233 277.117)"
-        }
-      }
+      "code": [
+        "cursor: pointer",
+        "border: none",
+        "color: #fff",
+        "font-size: .875rem",
+        "font-weight: 600",
+        "background-color: oklch(51.1% .262 276.966)",
+        "border-radius: 1000px",
+        "padding-block: .375rem",
+        "padding-inline: .75rem"
+      ]
     },
     {
-      "selector": "svg",
-      "parent": { "selector": "button", "direct": true },
-      "code": {
-        "rest": ["width: 1.25rem", "height: 1.25rem"]
-      }
+      "selector": "button > svg",
+      "code": ["width: 1.25rem", "height: 1.25rem"]
+    },
+    {
+      "selector": "button:hover",
+      "code": ["background-color: oklch(58.5% .233 277.117)"]
     }
   ],
   "dateModified": "2026-01-20"

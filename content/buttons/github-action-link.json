@@ -5,42 +5,32 @@
   "css": [
     {
       "selector": "a",
-      "code": {
-        "rest": [
-          "color: #0550ae",
-          "display: inline-flex",
-          "align-items: center",
-          "text-decoration: none"
-        ]
-      }
+      "code": [
+        "color: #0550ae",
+        "display: inline-flex",
+        "align-items: center",
+        "text-decoration: none"
+      ]
     },
     {
-      "selector": "svg",
-      "parent": { "selector": "a", "direct": true },
-      "code": {
-        "rest": [
-          "margin-inline-start: 0.25rem",
-          "transition: transform .2s",
-          "transform: translateX(0)"
-        ],
-        "hoverParent": {
-          "transform": "translateX(0.25rem)"
-        }
-      }
+      "selector": "a > svg",
+      "code": [
+        "margin-inline-start: 0.25rem",
+        "transition: transform .2s",
+        "transform: translateX(0)"
+      ]
     },
     {
-      "selector": "svg > path.arrow-line",
-      "parent": { "selector": "a", "direct": true },
-      "code": {
-        "rest": [
-          "stroke-dasharray: 10",
-          "stroke-dashoffset: 10",
-          "transition: stroke-dashoffset .2s"
-        ],
-        "hoverParent": {
-          "stroke-dashoffset": "0"
-        }
-      }
+      "selector": "a > svg > path.arrow-line",
+      "code": ["stroke-dasharray: 10", "stroke-dashoffset: 10", "transition: stroke-dashoffset .2s"]
+    },
+    {
+      "selector": "a:hover > svg",
+      "code": ["transform: translateX(0.25rem)"]
+    },
+    {
+      "selector": "a:hover > svg > path.arrow-line",
+      "code": ["stroke-dashoffset: 0"]
     }
   ],
   "dateModified": "2026-01-20"

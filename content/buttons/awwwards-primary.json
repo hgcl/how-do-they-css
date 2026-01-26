@@ -5,24 +5,25 @@
   "css": [
     {
       "selector": "button",
-      "code": {
-        "rest": [
-          "cursor: pointer",
-          "display: inline-flex",
-          "justify-content: center",
-          "align-items: center",
-          "white-space: nowrap",
-          "background-color: #222",
-          "color: #fff",
-          "font-weight: 500",
-          "min-width: 42px",
-          "height: 42px",
-          "padding: 0 20px",
-          "border: none",
-          "border-radius: 8px"
-        ],
-        "hover": { "background-color": "#383838" }
-      }
+      "code": [
+        "cursor: pointer",
+        "display: inline-flex",
+        "justify-content: center",
+        "align-items: center",
+        "white-space: nowrap",
+        "background-color: #222",
+        "color: #fff",
+        "font-weight: 500",
+        "min-width: 42px",
+        "height: 42px",
+        "padding: 0 20px",
+        "border: none",
+        "border-radius: 8px"
+      ]
+    },
+    {
+      "selector": "button:hover",
+      "code": ["background-color: #383838"]
     }
   ],
   "dateModified": "2026-01-20"

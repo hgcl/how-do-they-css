@@ -1,0 +1,41 @@
+{
+  "source": "Awwwards",
+  "comment": "Hypertext",
+  "html": "<a href=\"\">Hypertext</a>",
+  "css": [
+    {
+      "selector": "a",
+      "code": [
+        "cursor: pointer",
+        "position: relative",
+        "display: inline-block",
+        "line-height: 100%",
+        "font-size: clamp(18px,16px + 0.28vw,22px)",
+        "font-weight: 600",
+        "color: rgb(34,34,34)",
+        "text-decoration: none"
+      ]
+    },
+    {
+      "selector": "a::before",
+      "code": [
+        "content: ''",
+        "position: absolute",
+        "bottom: -0.2em",
+        "left: 0",
+        "width: 100%",
+        "height: 2px",
+        "background-repeat: no-repeat",
+        "background-image: linear-gradient(to right, rgb(34,34,34) 45%, rgba(34,34,34, 0.3) 55%)",
+        "background-size: 220% 100%",
+        "background-position: 100% 50%",
+        "transition: .3s ease-out"
+      ]
+    },
+    {
+      "selector": "a:hover::before",
+      "code": ["background-position: 0% 50%"]
+    }
+  ],
+  "dateModified": "2026-01-20"
+}

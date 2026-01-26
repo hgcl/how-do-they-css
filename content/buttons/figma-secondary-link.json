@@ -5,50 +5,50 @@
   "css": [
     {
       "selector": "a",
-      "code": {
-        "rest": [
-          "display: inline-flex",
-          "justify-content: center",
-          "border-radius: 8px",
-          "width: 100%",
-          "padding: 0.75rem 1.25rem",
-          "background: transparent",
-          "color: black",
-          "box-shadow: inset 0 0 0 1px #000000",
-          "font-weight: 600",
-          "text-decoration: none",
-          "text-align: center",
-          "transition: border-radius 160ms ease-out"
-        ],
-        "hover": { "border-radius": "0" }
-      }
+      "code": [
+        "display: inline-flex",
+        "justify-content: center",
+        "border-radius: 8px",
+        "width: 100%",
+        "padding: 0.75rem 1.25rem",
+        "background: transparent",
+        "color: black",
+        "box-shadow: inset 0 0 0 1px #000000",
+        "font-weight: 600",
+        "text-decoration: none",
+        "text-align: center",
+        "transition: border-radius 160ms ease-out"
+      ]
     },
     {
-      "selector": "span",
-      "parent": { "selector": "a", "direct": true },
-      "code": {
-        "rest": ["position: relative", "display: block", "transition: translate 160ms ease-out"],
-        "hoverParent": { "translate": "0.5625rem" }
-      }
+      "selector": "a > span",
+      "code": ["position: relative", "display: block", "transition: translate 160ms ease-out"],
+      "hoverParent": ["translate: 0.5625rem"]
     },
     {
-      "selector": "svg",
-      "parent": { "selector": "a", "direct": false },
-      "code": {
-        "rest": [
-          "opacity: 0",
-          "transition: opacity 160ms ease-out",
-          "width: 21px",
-          "height: 21px",
-          "display: inline-block",
-          "position: absolute",
-          "inset: 50% auto auto -23px",
-          "translate: 0 -50%"
-        ],
-        "hoverParent": {
-          "opacity": "1"
-        }
-      }
+      "selector": "a svg",
+      "code": [
+        "opacity: 0",
+        "transition: opacity 160ms ease-out",
+        "width: 21px",
+        "height: 21px",
+        "display: inline-block",
+        "position: absolute",
+        "inset: 50% auto auto -23px",
+        "translate: 0 -50%"
+      ]
+    },
+    {
+      "selector": "a:hover",
+      "code": ["border-radius: 0"]
+    },
+    {
+      "selector": "a:hover > span",
+      "code": ["translate: 0.5625rem"]
+    },
+    {
+      "selector": "a:hover svg",
+      "code": ["opacity: 1"]
     }
   ],
   "dateModified": "2026-01-20"

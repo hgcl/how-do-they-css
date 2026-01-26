@@ -4,60 +4,52 @@
   "html": "<a href=\"\"><span><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" fill=\"none\" viewBox=\"0 0 24 24\" aria-hidden=\"true\" class=\"btn-builtin-icon fig-bni7vm\"><path fill=\"currentColor\" fill-rule=\"evenodd\" d=\"M12.522 4.25 20 12l-7.478 7.75-.733-.709 6.302-6.531H4v-1.02h14.09L11.79 4.959z\" clip-rule=\"evenodd\"></path></svg><span>Tertiary</span></a>",
   "css": [
     {
-      "selector": "a::after",
-      "code": {
-        "rest": [
-          "content: ''",
-          "position: absolute",
-          "height: 1px",
-          "inset: auto 0px -2px",
-          "background:  #000000",
-          "transition: 160ms ease-out"
-        ]
-      }
-    },
-    {
       "selector": "a",
-      "code": {
-        "rest": [
-          "position: relative",
-          "display: inline-flex",
-          "justify-content: center",
-          "color: black",
-          "text-decoration: none",
-          "text-align: center",
-          "transition: border-radius 160ms ease-out"
-        ],
-        "hover": { "border-radius": "0" }
-      }
+      "code": [
+        "position: relative",
+        "display: inline-flex",
+        "justify-content: center",
+        "color: black",
+        "text-decoration: none",
+        "text-align: center"
+      ]
     },
     {
-      "selector": "span",
-      "parent": { "selector": "a", "direct": true },
-      "code": {
-        "rest": ["position: relative", "display: block", "transition: 160ms ease-out"],
-        "hoverParent": { "padding-left": "20px" }
-      }
+      "selector": "a::after",
+      "code": [
+        "content: ''",
+        "position: absolute",
+        "height: 1px",
+        "inset: auto 0px -2px",
+        "background:  #000000",
+        "transition: 160ms ease-out"
+      ]
     },
     {
-      "selector": "svg",
-      "parent": { "selector": "a", "direct": false },
-      "code": {
-        "rest": [
-          "clip-path: inset(0px 100% 0px 0px)",
-          "transition: clip-path 160ms ease-out",
-          "position: absolute",
-          "inset: 50% auto auto -23px",
-          "left: -3px",
-          "width: 21px",
-          "height: 21px",
-          "display: inline-block",
-          "translate: 0 -50%"
-        ],
-        "hoverParent": {
-          "clip-path": "inset(0px)"
-        }
-      }
+      "selector": "a > span",
+      "code": ["position: relative", "display: block", "transition: 160ms ease-out"]
+    },
+    {
+      "selector": "a svg",
+      "code": [
+        "clip-path: inset(0px 100% 0px 0px)",
+        "transition: clip-path 160ms ease-out",
+        "position: absolute",
+        "inset: 50% auto auto -23px",
+        "left: -3px",
+        "width: 21px",
+        "height: 21px",
+        "display: inline-block",
+        "translate: 0 -50%"
+      ]
+    },
+    {
+      "selector": "a:hover > span",
+      "code": ["padding-left: 20px"]
+    },
+    {
+      "selector": "a:hover svg",
+      "code": ["clip-path: inset(0px)"]
     }
   ],
   "dateModified": "2026-01-20"

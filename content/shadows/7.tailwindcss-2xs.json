@@ -4,9 +4,7 @@
   "css": [
     {
       "selector": "div",
-      "code": {
-        "rest": ["box-shadow: 0 1px rgb(0 0 0 / 0.05)"]
-      }
+      "code": ["box-shadow: 0 1px rgb(0 0 0 / 0.05)"]
     }
   ],
   "dateModified": "2026-01-20"

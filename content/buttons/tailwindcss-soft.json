@@ -5,22 +5,21 @@
   "css": [
     {
       "selector": "button",
-      "code": {
-        "rest": [
-          "cursor: pointer",
-          "border: none",
-          "color: oklch(51.1% .262 276.966)",
-          "font-size: .875rem",
-          "font-weight: 600",
-          "background-color: oklch(96.2% .018 272.314)",
-          "border-radius: .375rem",
-          "padding-block: .375rem",
-          "padding-inline: .625rem"
-        ],
-        "hover": {
-          "background-color": "oklch(93% .034 272.788)"
-        }
-      }
+      "code": [
+        "cursor: pointer",
+        "border: none",
+        "color: oklch(51.1% .262 276.966)",
+        "font-size: .875rem",
+        "font-weight: 600",
+        "background-color: oklch(96.2% .018 272.314)",
+        "border-radius: .375rem",
+        "padding-block: .375rem",
+        "padding-inline: .625rem"
+      ]
+    },
+    {
+      "selector": "button:hover",
+      "code": ["background-color: oklch(93% .034 272.788)"]
     }
   ],
   "dateModified": "2026-01-20"
