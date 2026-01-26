@@ -1,0 +1,11 @@
+{
+  "source": "Porsche",
+  "comment": "Shadow medium",
+  "css": [
+    {
+      "selector": "div",
+      "code": ["box-shadow: rgba(0, 0, 0, 0.16) 0px 4px 16px"]
+    }
+  ],
+  "dateModified": "2026-01-20"
+}
