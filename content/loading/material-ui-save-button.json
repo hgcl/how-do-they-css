@@ -1,0 +1,61 @@
+{
+  "source": "Material UI",
+  "comment": "Save button",
+  "html": "<button tabindex=\"-1\" disabled=\"true\"><span><svg aria-hidden=\"true\" viewBox=\"22 22 44 44\"><circle cx=\"44\" cy=\"44\" r=\"20.2\" fill=\"none\" stroke-width=\"3.6\"></circle></svg></span>Save</button>",
+  "css": [
+    {
+      "selector": "button",
+      "code": [
+        "pointer-events: none",
+        "position: relative",
+        "display: inline-flex",
+        "justify-content: center",
+        "align-items: center",
+        "min-width: 64px",
+        "border: none",
+        "border-radius: 4px",
+        "padding: 5px 15px",
+        "font-weight: 500",
+        "font-size: 0.875rem",
+        "line-height: 1.75",
+        "text-transform: uppercase",
+        "color: rgba(0, 0, 0, 0.26)",
+        "background-color: rgba(0, 0, 0, 0.12)"
+      ]
+    },
+    {
+      "selector": "button > span",
+      "code": ["margin-right: 8px"]
+    },
+    {
+      "selector": "svg",
+      "code": [
+        "width: 16px",
+        "height: 16px",
+        "animation: 1.4s linear 0s infinite normal none running rotate-material-ui"
+      ]
+    },
+    {
+      "selector": "svg > circle",
+      "code": [
+        "stroke: currentcolor",
+        "stroke-dasharray: 80px, 200px",
+        "stroke-dashoffset: 0",
+        "animation: 1.4s ease-in-out 0s infinite normal none running rotate-circle-material-ui"
+      ]
+    },
+    {
+      "selector": "@keyframes rotate-material-ui",
+      "code": ["0% { transform: rotate(0deg); }", "100% { transform: rotate(360deg); }"]
+    },
+    {
+      "selector": "@keyframes rotate-circle-material-ui",
+      "code": [
+        "0% { stroke-dasharray: 1px, 200px; stroke-dashoffset: 0; }",
+        "50% { stroke-dasharray: 100px, 200px; stroke-dashoffset: -15px; }",
+        "100% { stroke-dasharray: 1px, 200px; stroke-dashoffset: -126px; }"
+      ]
+    }
+  ],
+  "dateModified": "2026-01-20"
+}

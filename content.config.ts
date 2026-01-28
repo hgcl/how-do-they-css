@@ -24,6 +24,11 @@ export default defineContentConfig({
       source: 'buttons/**.json',
       schema: baseSchema()
     }),
+    loading: defineCollection({
+      type: 'data',
+      source: 'loading/**.json',
+      schema: baseSchema()
+    }),
     shadows: defineCollection({
       type: 'data',
       source: 'shadows/**.json',

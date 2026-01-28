@@ -14,14 +14,18 @@ export const generateCss = (
   if (!entry.css) return { injectedCss, formattedCss }
 
   for (const rule of entry.css) {
-    const wrappedCss = `${rule.selector} ` + wrapCss(rule.code)
+    const isKeyframe = rule.selector.startsWith('@keyframes') ? true : false
+    const scope = isKeyframe ? '' : `[data-scope="${index}"] `
 
-    injectedCss += `[data-scope="${index}"] ${wrappedCss}`
+    const wrappedCss =
+      `${rule.selector} ` +
+      '{\n' +
+      rule.code.map((line) => `  ${line}${isKeyframe ? '' : ';'}`).join('\n') +
+      '\n}\n'
+
+    injectedCss += `${scope}${wrappedCss}`
     formattedCss += `${wrappedCss}\n`
   }
 
   return { injectedCss, formattedCss }
 }
-
-const wrapCss = (cssArray: string[]) =>
-  '{\n' + cssArray.map((line) => `  ${line};`).join('\n') + '\n}\n'

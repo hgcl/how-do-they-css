@@ -1,0 +1,41 @@
+{
+  "source": "Porsche",
+  "comment": "Loading",
+  "html": "<span><svg role=\"img\" viewBox=\"-16 -16 32 32\" width=\"100%\" height=\"100%\"><title>Loading page content</title><circle r=\"9\"></circle><circle r=\"9\"></circle></svg></span>",
+  "css": [
+    {
+      "selector": "span",
+      "code": ["display: block", "height: 48px", "width: 48px", "stroke-width: 1.5px"]
+    },
+    {
+      "selector": "span > svg",
+      "code": ["display: block", "fill: none", "animation: rotate-porsche 1.2s steps(50) infinite"]
+    },
+    {
+      "selector": "span > svg > circle:first-child",
+      "code": ["stroke: rgb(107, 109, 112)"]
+    },
+    {
+      "selector": "span > svg > circle:last-child",
+      "code": [
+        "animation: dash-porsche 1.2s steps(50) infinite",
+        "stroke: rgb(1, 2, 5)",
+        "stroke-dasharray: 57px",
+        "stroke-linecap: round"
+      ]
+    },
+    {
+      "selector": "@keyframes rotate-porsche",
+      "code": ["0% { transform: rotateZ(0deg); }", "100% { transform: rotateZ(360deg); }"]
+    },
+    {
+      "selector": "@keyframes dash-porsche",
+      "code": [
+        "0% { stroke-dashoffset: 57; transform: rotateZ(0deg); }",
+        "50%, 75% { stroke-dashoffset: 20; transform: rotateZ(80deg); }",
+        "100% { stroke-dashoffset: 57; transform: rotateZ(360deg); }"
+      ]
+    }
+  ],
+  "dateModified": "2026-01-20"
+}

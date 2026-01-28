@@ -1,0 +1,23 @@
+{
+  "source": "Porsche",
+  "comment": "Primary button",
+  "html": "<button>Primary</button>",
+  "css": [
+    {
+      "selector": "button",
+      "code": [
+        "cursor: pointer",
+        "color: rgb(251, 252, 255)",
+        "background-color: rgb(1, 2, 5)",
+        "border: 2px solid rgb(1, 2, 5)",
+        "border-radius: 4px",
+        "padding: 0.8125rem 1.625rem"
+      ]
+    },
+    {
+      "selector": "button:hover",
+      "code": ["background-color: rgb(83, 84, 87)", "border-color: rgb(83, 84, 87)"]
+    }
+  ],
+  "dateModified": "2026-01-20"
+}

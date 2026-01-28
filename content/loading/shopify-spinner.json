@@ -1,0 +1,34 @@
+{
+  "source": "Shopify",
+  "comment": "Loading",
+  "html": "<span><svg role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 44 44\" fill=\"none\"><title>Loading</title><circle r=\"19\" stroke-width=\"2\" cx=\"22\" cy=\"22\"></circle><circle pathLength=\"10\" r=\"19\" stroke-width=\"2\" cx=\"22\" cy=\"22\"></circle></svg></span>",
+  "css": [
+    {
+      "selector": "span",
+      "code": [
+        "display: block",
+        "block-size: 2.75rem",
+        "inline-size: 2.75rem",
+        "opacity: 1",
+        "transition: opacity 150ms allow-discrete"
+      ]
+    },
+    {
+      "selector": "span > svg",
+      "code": ["transform-origin: center center", "animation: rotate-shopify 500ms linear infinite"]
+    },
+    {
+      "selector": "span > svg > circle:first-child",
+      "code": ["stroke: rgba(0, 0, 0, 0.17)"]
+    },
+    {
+      "selector": "span > svg > circle:last-child",
+      "code": ["stroke: rgba(48, 48, 48, 1)", "stroke-linecap: round", "stroke-dasharray: 4, 6"]
+    },
+    {
+      "selector": "@keyframes rotate-shopify",
+      "code": ["100% { transform: rotate(1turn); }"]
+    }
+  ],
+  "dateModified": "2026-01-20"
+}

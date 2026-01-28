@@ -1,0 +1,25 @@
+{
+  "source": "Stripe",
+  "comment": "Loading",
+  "html": "<svg role=\"img\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><title>Loading</title><g transform=\"translate(1 1)\" fill-rule=\"nonzero\"><circle cx=\"11\" cy=\"11\" r=\"11\" fill=\"none\"></circle><path d=\"M10.998 22a.846.846 0 0 1 0-1.692 9.308 9.308 0 0 0 0-18.616 9.286 9.286 0 0 0-7.205 3.416.846.846 0 1 1-1.31-1.072A10.978 10.978 0 0 1 10.998 0c6.075 0 11 4.925 11 11s-4.925 11-11 11z\" fill=\"inherit\"></path></g></svg>",
+  "css": [
+    {
+      "selector": "svg",
+      "code": [
+        "display: block",
+        "height: 24px",
+        "animation: 0.7s linear 0s infinite normal none running rotate-stripe",
+        "fill: rgb(108, 118, 136)"
+      ]
+    },
+    {
+      "selector": "@keyframes rotate-stripe",
+      "code": [
+        "0% { transform: scaleX(-1) rotateZ(0deg); }",
+        "50% { transform: scaleX(-1) rotateZ(-180deg); }",
+        "100% { transform: scaleX(-1) rotateZ(-360deg); }"
+      ]
+    }
+  ],
+  "dateModified": "2026-01-20"
+}

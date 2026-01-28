@@ -1,0 +1,69 @@
+{
+  "source": "Material UI",
+  "comment": "Save button with icon",
+  "html": "<button tabindex=\"-1\" disabled=\"true\"><span class=\"icon\"><svg focusable=\"false\" aria-hidden=\"true\" viewBox=\"0 0 24 24\"><path d=\"M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3m3-10H5V5h10z\"></path></svg></span>Save<span class=\"spinner\"><svg aria-hidden=\"true\" viewBox=\"22 22 44 44\"><circle cx=\"44\" cy=\"44\" r=\"20.2\" fill=\"none\" stroke-width=\"3.6\"></circle></svg></span></button>",
+  "css": [
+    {
+      "selector": "button",
+      "code": [
+        "pointer-events: none",
+        "position: relative",
+        "display: inline-flex",
+        "justify-content: center",
+        "align-items: center",
+        "min-width: 64px",
+        "border: none",
+        "border-radius: 4px",
+        "padding: 5px 15px",
+        "font-weight: 500",
+        "font-size: 0.875rem",
+        "line-height: 1.75",
+        "text-transform: uppercase",
+        "color: rgba(0, 0, 0, 0.26)",
+        "background-color: rgba(0, 0, 0, 0.12)"
+      ]
+    },
+    {
+      "selector": "button > span.icon",
+      "code": ["color: rgba(0, 0, 0, 0.26)", "margin-right: 8px"]
+    },
+    {
+      "selector": "button > span.spinner",
+      "code": ["margin-left: 8px"]
+    },
+    {
+      "selector": "button > span.icon > svg",
+      "code": ["fill: currentColor", "width: 20px", "height: 20px"]
+    },
+    {
+      "selector": "button > span.spinner > svg",
+      "code": [
+        "width: 16px",
+        "height: 16px",
+        "animation: 1.4s linear 0s infinite normal none running rotate-material-ui"
+      ]
+    },
+    {
+      "selector": "svg > circle",
+      "code": [
+        "stroke: currentcolor",
+        "stroke-dasharray: 80px, 200px",
+        "stroke-dashoffset: 0",
+        "animation: 1.4s ease-in-out 0s infinite normal none running rotate-circle-material-ui"
+      ]
+    },
+    {
+      "selector": "@keyframes rotate-material-ui",
+      "code": ["0% { transform: rotate(0deg); }", "100% { transform: rotate(360deg); }"]
+    },
+    {
+      "selector": "@keyframes rotate-circle-material-ui",
+      "code": [
+        "0% { stroke-dasharray: 1px, 200px; stroke-dashoffset: 0; }",
+        "50% { stroke-dasharray: 100px, 200px; stroke-dashoffset: -15px; }",
+        "100% { stroke-dasharray: 1px, 200px; stroke-dashoffset: -126px; }"
+      ]
+    }
+  ],
+  "dateModified": "2026-01-20"
+}
