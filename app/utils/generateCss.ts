@@ -14,8 +14,9 @@ export const generateCss = (
   if (!entry.css) return { injectedCss, formattedCss }
 
   for (const rule of entry.css) {
+    const isProperty = rule.selector.startsWith('@property') ? true : false
     const isKeyframe = rule.selector.startsWith('@keyframes') ? true : false
-    const scope = isKeyframe ? '' : `[data-scope="${index}"] `
+    const scope = isKeyframe || isProperty ? '' : `[data-scope="${index}"] `
 
     const wrappedCss =
       `${rule.selector} ` +
