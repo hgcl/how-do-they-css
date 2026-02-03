@@ -1,75 +1,25 @@
-# Nuxt Minimal Starter
+# How do they CSS
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Resources
 
-## Setup
+- [Atlassian](https://atlassian.design/)
+- [Awwwards](https://www.awwwards.com/)
+- [Figma](https://figma.com/)
+- [GitHub](https://primer.style/product/components/)
+- [GitLab](https://design.gitlab.com/components/spinner/)
+- [Hewlett Packard Enterprise](https://design-system.hpe.design/)
+- [IBM](https://carbondesignsystem.com/)
+- [Material UI](https://mui.com/material-ui/all-components/)
+- [Porsche](https://designsystem.porsche.com/)
+- [Shopify](https://polaris-react.shopify.com/)
+- [Stripe](https://docs.stripe.com/stripe-apps/components)
+- [Uber](https://baseweb.design/)
 
-Make sure to install dependencies:
+Resources to look into:
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- Airbnb
+- Notion
+- Framer
+- Linear
+- Slack
+- Radix: https://www.radix-ui.com/
