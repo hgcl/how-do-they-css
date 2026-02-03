@@ -7,7 +7,15 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en'
       },
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      script: [
+        // Cloudflare analytics
+        {
+          defer: true,
+          src: 'https://static.cloudflareinsights.com/beacon.min.js',
+          'data-cf-beacon': '{"token": "4126f489474b5ea2bdfff3d1f71406"}'
+        }
+      ]
     }
   },
   css: ['~/assets/globals.css'],
