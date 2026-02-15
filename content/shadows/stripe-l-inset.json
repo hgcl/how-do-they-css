@@ -1,0 +1,13 @@
+{
+  "source": "Stripe",
+  "comment": "Shadow L (inset)",
+  "css": [
+    {
+      "selector": "div",
+      "code": [
+        "box-shadow: inset 0 30px 60px -12px rgba(50,50,93,0.25), inset 0 18px 36px -18px rgba(0,0,0,0.3)"
+      ]
+    }
+  ],
+  "dateModified": "2026-01-20"
+}
