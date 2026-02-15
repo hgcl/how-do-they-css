@@ -1,6 +1,14 @@
 <template>
   <GridList>
-    <GridItem v-for="(entry, index) in shadows" :key="entry.id" :entry="entry" :index="index" />
+    <template v-if="pending">
+      <LoadingSpinner />
+    </template>
+    <template v-else-if="error">
+      <p>Error loading content</p>
+    </template>
+    <template v-else>
+      <GridItem v-for="(entry, index) in shadows" :key="entry.id" :entry="entry" :index="index" />
+    </template>
   </GridList>
 </template>
 
@@ -10,7 +18,11 @@ definePageMeta({
 })
 
 // Get all shadows entries
-const { data: shadows } = await useAsyncData(
+const {
+  data: shadows,
+  pending,
+  error
+} = await useAsyncData(
   'shadows',
   () => {
     return queryCollection('shadows').order('source', 'ASC').all()
