@@ -31,4 +31,6 @@ const {
     default: () => []
   }
 )
+
+console.error(error)
 </script>
