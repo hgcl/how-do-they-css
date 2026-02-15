@@ -23,7 +23,10 @@ export default defineNuxtConfig({
   css: ['~/assets/globals.css'],
   compatibilityDate: '2025-07-15',
   nitro: {
-    preset: 'cloudflare'
+    preset: 'cloudflare_module',
+    cloudflare: {
+      deployConfig: true
+    }
   },
   a11y: {
     // Enable/disable the module (default: true in dev mode)

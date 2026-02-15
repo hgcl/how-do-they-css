@@ -1,6 +1,0 @@
-name = "how-do-they-css"
-compatibility_date = "2026-02-01"
-compatibility_flags = ["nodejs_compat"]
-
-[build]
-command = "npx nuxi build"
