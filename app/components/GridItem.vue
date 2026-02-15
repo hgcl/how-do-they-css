@@ -117,16 +117,19 @@ li {
   align-items: center;
   justify-content: center;
   font-family: var(--fontfamily-neutral);
+  text-align: center;
 }
 
 .card__example.square {
   margin: var(--spacing-xl) auto;
   aspect-ratio: 1/1;
   min-width: 96px;
+  border-radius: 4px;
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: var(--spacing-s);
   color: var(--color-fg-mute);
   font-size: var(--fontsize-s);
 }
