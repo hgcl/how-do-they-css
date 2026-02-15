@@ -1,5 +1,5 @@
 <template>
-  <GridList v-if="buttons">
+  <GridList>
     <GridItem v-for="(entry, index) in buttons" :key="entry.id" :entry="entry" :index="index" />
   </GridList>
 </template>
@@ -10,7 +10,13 @@ definePageMeta({
 })
 
 // Get all buttons entries
-const { data: buttons } = await useAsyncData('buttons', () => {
-  return queryCollection('buttons').order('source', 'ASC').all()
-})
+const { data: buttons } = await useAsyncData(
+  'buttons',
+  () => {
+    return queryCollection('buttons').order('source', 'ASC').all()
+  },
+  {
+    default: () => []
+  }
+)
 </script>

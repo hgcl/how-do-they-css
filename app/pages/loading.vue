@@ -1,5 +1,5 @@
 <template>
-  <GridList v-if="loading">
+  <GridList>
     <GridItem v-for="(entry, index) in loading" :key="entry.id" :entry="entry" :index="index" />
   </GridList>
 </template>
@@ -10,7 +10,13 @@ definePageMeta({
 })
 
 // Get all loading entries
-const { data: loading } = await useAsyncData('loading', () => {
-  return queryCollection('loading').order('source', 'ASC').all()
-})
+const { data: loading } = await useAsyncData(
+  'loading',
+  () => {
+    return queryCollection('loading').order('source', 'ASC').all()
+  },
+  {
+    default: () => []
+  }
+)
 </script>
